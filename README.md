@@ -1,1 +1,3 @@
-# dowser-api
+# Dowser - API
+
+Official Dowser's API
