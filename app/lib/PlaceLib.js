@@ -1,5 +1,5 @@
 "use strict";
-var PlaceModel = require('../models/places');
+var PlaceModel = require('../models/place');
 
 let internals = {};
 

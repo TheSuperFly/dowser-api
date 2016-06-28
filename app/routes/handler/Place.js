@@ -49,8 +49,8 @@ places.pathDelete = function ( request, reply ) {
 
 };
 
-
 // SECTION : Private
+
 places._getData = function ( request ) {
   var res = {};
 
