@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-var Places = new Schema({
+var Place = new Schema({
   name: {
     type: String,
     required: true
@@ -29,4 +29,4 @@ var Places = new Schema({
   }
 });
 
-module.exports = mongoose.model('Places', Places);
+module.exports = mongoose.model('Place', Place);
