@@ -5,7 +5,12 @@ var global = {};
 global.env = require('./development') || require('./production');
 
 global.serverProperties = {
-  load: { sampleInterval: 1000 }
+  load: { sampleInterval: 1000 },
+  connections: {
+    router: {
+      stripTrailingSlash: true
+    }
+  }
 };
 
 global.goodOptions = {
