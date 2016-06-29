@@ -24,6 +24,5 @@
   },
   "devDependencies": {
     "blipp": "^2.3.0",
-    "faker": "^3.1.0"
   }
 }
