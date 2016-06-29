@@ -1,7 +1,7 @@
 const Joi = require('joi');
 
-exports.signUp = {
-  username: Joi.string().required().max(32),
-  password: Joi.string().required().max(32),
-  facebookId: Joi.string().required().max(32)
+exports.auth = {
+  accessToken: Joi.string().required(),
+  facebookId: Joi.number().required(),
+  uuid: Joi.string().guid().required()
 };
