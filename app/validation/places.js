@@ -8,8 +8,17 @@ exports.savePlace = {
   address: Joi.string().max(32).required(),
   zipcode: Joi.string().max(16).required(),
   city: Joi.string().max(32).required(),
-  geopos: Joi.string().required(),
-  image: Joi.string().required()
+  geopos: Joi.array().required(),
+  image: Joi.array().required(),
+  openingHours: Joi.array().items(
+    Joi.object().keys({
+      day: Joi.number(),
+      hourOpening: Joi.number(),
+      hourClosing: Joi.number()
+    })
+  ).optional(),
+  description: Joi.string().optional(),
+  tags: Joi.array().optional()
 };
 
 exports.updatePlace = {
@@ -19,11 +28,25 @@ exports.updatePlace = {
   zipcode: Joi.string().max(16).optional(),
   city: Joi.string().max(32).optional(),
   geopos: Joi.string().optional(),
-  image: Joi.string().optional()
+  image: Joi.string().optional(),
+  openingHours: Joi.array().items(
+    Joi.object().keys({
+      day: Joi.number(),
+      hourOpening: Joi.number(),
+      hourClosing: Joi.number()
+    })
+  ).optional(),
+  description: Joi.string().optional(),
+  tags: Joi.array().optional()
 };
 
 exports.getPlace = {
   id: Joi.objectId()
+};
+
+exports.likePlace = {
+  placeId: Joi.objectId(),
+  userId: Joi.objectId()
 };
 
 exports.deletePlace = {

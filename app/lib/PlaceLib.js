@@ -14,7 +14,10 @@ internals.savePlace = function ( data, cb ) {
     zipcode: data.zipcode,
     geopos: data.geopos,
     city: data.city,
-    image: data.image
+    image: data.image,
+    openingHours: data.openingHours,
+    description: data.description,
+    tags: data.tags
   });
 
   newPlace.save(cb);
@@ -30,6 +33,10 @@ internals.updatePlace = function ( data, cb ) {
 
 internals.deletePlace = function ( res, cb ) {
   PlaceModel.remove({ _id: res.id }, cb);
+};
+
+internals.likePlace = function ( placeId, userId, cb ) {
+  PlaceModel.like(placeId, userId, cb);
 };
 
 module.exports = internals;

@@ -9,6 +9,7 @@ internals.getHomefeed = function(cb) {
     .find({})
     .limit(10)
     .skip(0)
+    .select('name address zipcode city geopos image')
     .sort('-_id')
     .exec(function(err, data) {
       cb(err, data);

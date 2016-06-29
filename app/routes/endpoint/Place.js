@@ -32,6 +32,13 @@ exports.register = function ( server, options, next ) {
     handler: PlaceHandler.pathDelete
   });
 
+  server.route({
+    method: 'POST',
+    path: '/place/like',
+    config: { validate: { params: PlaceValidation.likePlace } },
+    handler: PlaceHandler.pathLike
+  });
+
   return next();
 };
 

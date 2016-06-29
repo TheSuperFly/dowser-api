@@ -16,7 +16,7 @@ places.pathGet = function ( request, reply ) {
   var id = request.params.id;
 
   Places.getPlace(id, function ( err, data ) {
-    reply(Reply.basicReply(err, data[0]));
+    reply(Reply.basicReply(err, data[ 0 ]));
   });
 
 };
@@ -33,7 +33,7 @@ places.pathSave = function ( request, reply ) {
 places.pathUpdate = function ( request, reply ) {
   var data = places._getData(request.payload);
 
-  Places.updatePlace(data, function(err, data) {
+  Places.updatePlace(data, function ( err, data ) {
     reply(Reply.updateReply(err, data));
   });
 
@@ -42,8 +42,17 @@ places.pathUpdate = function ( request, reply ) {
 places.pathDelete = function ( request, reply ) {
   var res = places._getData(request.payload);
 
-  Places.deletePlace(res, function( err, data) {
+  Places.deletePlace(res, function ( err, data ) {
     reply(Reply.basicReply(err, data))
+  });
+
+};
+
+places.pathLike = function ( request, reply ) {
+  var data = places._getData(request.payload);
+
+  Places.likePlace(data.placeId, data.userId, function ( err, data ) {
+    reply(Reply.basicReply(err, data));
   });
 
 };
@@ -70,15 +79,36 @@ places._getData = function ( request ) {
   }
 
   if ( request.geopos ) {
-    res.geopos = request.geopos.split(';');
+    res.geopos = request.geopos;
   }
 
   if ( request.image ) {
-    res.image = request.image.split(';');
+    res.image = request.image;
   }
 
+  if ( request.openingHours ) {
+    res.openingHours = request.openingHours;
+  }
+
+  if ( request.description ) {
+    res.description = request.description;
+  }
+
+  if ( request.tags ) {
+    res.tags = request.tags;
+  }
+
+  // Alias to placeId.
   if ( request.id ) {
     res.id = request.id;
+  }
+
+  if ( request.placeId ) {
+    res.placeId = request.placeId;
+  }
+
+  if ( request.userId ) {
+    res.userId = request.userId;
   }
 
   return res;
