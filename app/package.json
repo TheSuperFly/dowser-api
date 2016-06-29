@@ -23,6 +23,6 @@
     "mongoose": "^4.4.19"
   },
   "devDependencies": {
-    "blipp": "^2.3.0",
+    "blipp": "^2.3.0"
   }
 }
