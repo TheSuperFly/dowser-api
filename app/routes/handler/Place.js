@@ -16,7 +16,7 @@ places.pathGet = function ( request, reply ) {
   var id = request.params.id;
 
   Places.getPlace(id, function ( err, data ) {
-    reply(Reply.basicReply(err, data));
+    reply(Reply.basicReply(err, data[0]));
   });
 
 };
