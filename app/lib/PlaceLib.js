@@ -14,6 +14,7 @@ internals.savePlace = function ( data, cb ) {
     zipcode: data.zipcode,
     geopos: data.geopos,
     city: data.city,
+    website: data.website,
     image: data.image,
     openingHours: data.openingHours,
     description: data.description,

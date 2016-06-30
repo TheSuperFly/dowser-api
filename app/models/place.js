@@ -29,6 +29,10 @@ var Place = new Schema({
     type: [ String ],
     required: true
   },
+  website: {
+    type: String,
+    required: true
+  },
   openingHours: {
     type: [
       {

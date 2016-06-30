@@ -10,6 +10,7 @@ exports.savePlace = {
   city: Joi.string().max(32).required(),
   geopos: Joi.array().required(),
   image: Joi.array().required(),
+  website: Joi.string().uri().optional(),
   openingHours: Joi.array().items(
     Joi.object().keys({
       day: Joi.number(),
@@ -29,6 +30,7 @@ exports.updatePlace = {
   city: Joi.string().max(32).optional(),
   geopos: Joi.string().optional(),
   image: Joi.string().optional(),
+  website: Joi.string().uri().optional(),
   openingHours: Joi.array().items(
     Joi.object().keys({
       day: Joi.number(),

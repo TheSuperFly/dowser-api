@@ -78,6 +78,10 @@ places._getData = function ( request ) {
     res.city = request.city;
   }
 
+  if ( request.website ) {
+    res.website = request.website;
+  }
+
   if ( request.geopos ) {
     res.geopos = request.geopos;
   }
