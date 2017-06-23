@@ -11,6 +11,7 @@ internals.generateRandomPlace = function () {
     zipcode: Faker.address.zipCode(),
     city: Faker.address.city(),
     image: Faker.image.food(),
+    website: Faker.internet.url(),
     geopos: [
       Faker.address.longitude(),
       Faker.address.latitude()
